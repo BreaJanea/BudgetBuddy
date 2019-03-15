@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Asap:400,500,700" rel="stylesheet">
+    <title>Budget Buddy - Midterm</title>
 </head>
+
 <body>
-    
+        <div class="header">
+            <h1>Budget Buddy</h1>
+            <p>Your weekly budget made simple!</p>
+        </div>
+
+        <div class="about">
+            <p>Using BudgetBuddy you can manage your weekly spending like a pro! Simply enter your purchases in the categories below and watch as your budget is updated for you automatically!</p>
+          </div>
+
+    <div class="initialform">
+        
+        <form class="mainform" type="button">
+            <input class="name" type="text" placeholder="Name" />
+            <input class="budget" type="text" placeholder="Weekly Budget" />
+            <button class="add" type="button">Get Your Budget!</button>
+        </form>
+    </div>
+
+
+        <div class="top-part">
+        <div class="left-side-top">
+        <p class="hello">Hello, username</p>
+    </div>
+    <div class="right-side-top">
+        <h2>Expenditures</h2>
+        <p class="clothing-money">Clothing: $0000</p>
+        <p class="food-money">Food: $0000</p>
+        <p class="entertainment-money">Etertainment: $0000</p>
+        <p class="bills-money">Bills: $0000</p>
+    </div>
+    </div>
+
+    <div class = "Categories">
+        <h1>Clothing</h1>
+        <form class= "Categories">
+          <input class= "item item-clothing" type= "text" placeholder= "Item">
+          <input class= "cost cost-clothing" type= "text" placeholder= "Cost">
+          <button class="enter enter-clothing" type="button">Enter</button>
+        <h1>Food</h1>
+          <input class= "item item-food" type= "text" placeholder= "Item">
+          <input class= "cost cost-food" type= "text" placeholder= "Cost">
+          <button class="enter enter-food" type="button">Enter</button>
+        <h1>Entertainment</h1>
+          <input class= "item item-entertainment" type= "text" placeholder= "Item">
+          <input class= "cost cost-entertainment" type= "text" placeholder= "Cost">
+          <button class="enter enter-entertainment" type="button">Enter</button>
+        <h1>Bills</h1>
+          <input class= "item item-bills" type= "text" placeholder= "Item">
+          <input class= "cost cost-bills" type= "text" placeholder= "Cost">
+          <button class="enter enter-bills" type="button">Enter</button>
+        </form>
+      </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
