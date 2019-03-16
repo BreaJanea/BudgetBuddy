@@ -13,7 +13,7 @@
 
 <body>
       <!--Hidden Initial Entry Form-->
-      <section class ="hide entry-form">
+      <section class ="entry-form">
         <section class ="form-container">
           <h1 class ="logo">BudgetBuddy</h1>
           <p>Your weekly budget made simple!</p>
@@ -43,13 +43,13 @@
       <section class="top-container">
         <!--Intro/About Section-->
         <section class="about">
-          <p>Welcome to BudgetBuddy, <span class="username">Username</span>!</p>
+          <p>Welcome to BudgetBuddy, <span class="username-display">Username</span>!</p>
           <p class="optional">Using BudgetBuddy you can manage your weekly spending like a pro! Simply enter your purchases in the categories below and watch as your budget is updated for you automatically!</p>
         </section>
 
         <!--Summary Section-->
         <section class="summary">
-          <h1 class="totalBudget"><span>Budget: </span>$400</h1>
+          <h1 class="totalBudget-styles"><span>Budget: </span><span class="totalBudget"></span></h1>
           <h3 class="expenditures">Expenditures</h3>
           <div class="graph"></div>
           <p class="clothing-money">Clothing: <span class="clothing-color">$0000</span></p>
@@ -74,6 +74,7 @@
             </div>
             <button class="enter enter-clothing" type="button">Enter</button>
           </form>
+          <p class ="total-marker">Total Spent:</p>
           <h2 class="clothing-spend">$200</h2>
         </div>
         <div class="container food-container">
@@ -89,6 +90,7 @@
             </div>
             <button class="enter enter-food" type="button">Enter</button>
           </form>
+          <p class ="total-marker">Total Spent:</p>
           <h2 class="food-spend">$200</h2>
         </div>
         <div class="container entertainment-container">
@@ -104,6 +106,7 @@
             </div>
             <button class="enter enter-entertainment" type="button">Enter</button>
           </form>
+          <p class ="total-marker">Total Spent:</p>
           <h2 class="entertainment-spend">$200</h2>
         </div>
         <div class="container bills-container">
@@ -119,6 +122,7 @@
             </div>
             <button class="enter enter-bills" type="button">Enter</button>
           </form>
+          <p class ="total-marker">Total Spent:</p>
           <h2 class="bills-spend">$200</h2>
         </div>
       </section>

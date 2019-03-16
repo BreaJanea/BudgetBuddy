@@ -45,6 +45,7 @@ input {
     width: 100%;
     color: #797979;
     font-size: 16px;
+    text-indent: 15px;
 }
 
 input:focus {
@@ -157,7 +158,7 @@ button:focus {
     text-align: center;
 }
 
-.username {
+.username-display {
     color: #C72B85;
     font-weight: 700;
 }
@@ -174,7 +175,7 @@ button:focus {
     color: #ADADAD;
 }
 
-.totalBudget {
+.totalBudget-styles {
     color: #054662;
     margin-bottom: 30px;
     text-align: center;
@@ -305,6 +306,30 @@ button:focus {
     font-size: 3.5em;
     color: #C72B85 !Important;
     text-align: center;
+}
+
+.food-spend {
+    font-size: 3.5em;
+    color: #53D6F5 !Important;
+    text-align: center;
+}
+
+.entertainment-spend {
+    font-size: 3.5em;
+    color: #FA5FE2 !Important;
+    text-align: center;
+}
+
+.bills-spend {
+    font-size: 3.5em;
+    color: #054662 !Important;
+    text-align: center;
+}
+
+.total-marker {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 30px;
 }
 
 /* ------- Transaction History Styles --------*/
