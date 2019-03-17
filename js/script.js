@@ -7,7 +7,7 @@
     let showBudgetTotal = document.querySelector('.totalBudget');
 
     let itemClothing = document.querySelector('.item-clothing');
-    let itemFood = document.querySelector('item-food');
+    let itemFood = document.querySelector('.item-food');
     let itemEntertainment = document.querySelector('.item-entertainment');
     let itemBills = document.querySelector('.item-bills');
     
