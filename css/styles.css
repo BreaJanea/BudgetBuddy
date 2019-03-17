@@ -347,4 +347,10 @@ footer p {
     padding-top: 27px;
 }
 
+/* grayed out buttons after budget limit is reached */
+.gray {
+    background: gray;
+}
+
+
 /* ------- Desktop Styles --------*/
