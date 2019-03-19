@@ -44,7 +44,7 @@
   const userNameDisplay = document.querySelector('.username-display');
 
   
-document.getElementById("myBtn").addEventListener("click", submitBudgetForm);
+const budgetInput = document.getElementById('budget_input');
 
 
   //BUDGETS 
@@ -56,16 +56,9 @@ document.getElementById("myBtn").addEventListener("click", submitBudgetForm);
   let entertainmentBudget = 0;
   let billsBudget = 0;
 
-  function submitBudgetForm(){
-    const empt = document.form1;
-    if(empt.budget_input.value === ""){
-      alert("Value cannot be empty or negative!");
-      //return false;
-    } else{
-      return true;
-    }
-    return;
-}
+
+
+
 
   //FUNCTIONS - each individual budget is calculated separately below
 
@@ -263,11 +256,18 @@ document.getElementById("myBtn").addEventListener("click", submitBudgetForm);
 
   // Takes user input and displays value for budget and username, hides initial form, and scrolls to top of page
   addButton.addEventListener('click', () => {
+    const empt = document.form1;
+
+    if(empt.querySelector('.name').value === "" || budgetInput.value < 1){
+      alert("Value cannot be empty or negative!");
+    } else {
+     
       getBudgetNumber();
       showBudgetTotal.innerText = `$${runningBudget}`;
       userNameDisplay.innerText = `${userName.value}`;
       hiddenForm.classList.add("hide");
       window.scrollTo(0, 0);
+    }
   });
 
   // Adds new purchases when user hitting enter, deducts price from budget total, clears fields
@@ -310,4 +310,5 @@ document.getElementById("myBtn").addEventListener("click", submitBudgetForm);
     });
   
 }
+
 
