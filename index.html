@@ -18,19 +18,21 @@
           <h1 class ="logo">BudgetBuddy</h1>
           <p>Your weekly budget made simple!</p>
           <div id="initialform" class="initialform">
-            <form name="form1" class="mainform" type="button">
+            <form name="form1" class="mainform" type="button" onsubmit="submitBudgetForm()">
               <div class="input-holder">
                 <label>Username:</label>
                 <input class="name" type="text" />
               </div>
+    
               <div class="input-holder">
                 <label>Weekly Total Budget:</label>
-                <input id="budget_input" class="budget" type="text" onclick="submitBudgetForm()"/>
+                <input id="budget_input" class="budget" type="number">
               </div>
               <button id="myBtn" class="add" type="button">Get Your Budget!</button>
-             
+              
+
             </form>
-             
+            
        
           </div>
         </section>
@@ -131,17 +133,20 @@
               <p class ="total-marker">Total Spent:</p>
               <h2 class="bills-spend">$0</h2>
             </div>
+
           </section>
     
-          <!--Transaction History Section-->
-          <section class="transactions">
-            <h3 class="history">Transaction History</h3>
-            <div class="graph"></div>
-            <p class="clothing-transaction">Item Name: <span class="clothing-color-transaction">$0</span></p>
-            <p class="food-money">Itme Name: <span class="food-color">$0</span></p>
-            <p class="entertainment-money">Item Name: <span class="entertainment-color">$0</span></p>
-            <p class="bills-money">Item Name: <span class="bills-color">$0</span></p>
-          </section>
+         
+
+      
+
+      <!--Transaction History Section-->
+      <section class="transactions">
+        <h3 class="history">Transaction History</h3>
+        <div class="graph"></div>
+        <p class="transactions-hide">You have no saved transactions yet</p>
+      </section>
+
 
       <!--Footer-->
       <footer>
