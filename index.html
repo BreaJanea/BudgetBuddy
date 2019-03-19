@@ -18,19 +18,21 @@
           <h1 class ="logo">BudgetBuddy</h1>
           <p>Your weekly budget made simple!</p>
           <div id="initialform" class="initialform">
-            <form name="form1" class="mainform" type="button">
+            <form name="form1" class="mainform" type="button" onsubmit="submitBudgetForm()">
               <div class="input-holder">
                 <label>Username:</label>
                 <input class="name" type="text" />
               </div>
+    
               <div class="input-holder">
                 <label>Weekly Total Budget:</label>
-                <input id="budget_input" class="budget" type="text" onclick="submitBudgetForm()"/>
+                <input id="budget_input" class="budget" type="number">
               </div>
               <button id="myBtn" class="add" type="button">Get Your Budget!</button>
-             
+              
+
             </form>
-             
+            
        
           </div>
         </section>
