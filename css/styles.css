@@ -109,6 +109,7 @@ button:focus {
     font-weight: 700;
     color: #C72B85;
     text-align: center; 
+    text-transform: none !important;
 }
 
 .form-container > h1 {
@@ -124,6 +125,7 @@ button:focus {
     background: #C72B85;
     width: 80%;
     margin: 50px auto 10px;
+    max-width: 360px;
 }
 .showItem{
     display: block;
@@ -172,6 +174,12 @@ button:focus {
 
 /* ------- Summary Styles --------*/
 
+.totalBudget-styles {
+    color: #054662;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 .summary {
     width: 85%;
     margin: 0 auto;
@@ -180,12 +188,6 @@ button:focus {
 .summary > p {
     margin-bottom: 20px;
     color: #ADADAD;
-}
-
-.totalBudget-styles {
-    color: #054662;
-    margin-bottom: 30px;
-    text-align: center;
 }
 
 .expenditures {
@@ -360,227 +362,91 @@ footer p {
 }
 
 
-/* ------- Desktop Styles --------*/
+/* ------- Desktop Styles/Media Queries --------*/
 
-
-/* ------- Hidden Initial Entry Form Styles --------*/
 
 @media only screen and (min-width: 768px) {
 
-    .hide {
-        display: none !important; 
-    }
-    
-    .entry-form {
-        background: #054662;
-        position:fixed;
-        width: 100%;
-        height:100%;
-        top:0px;
-        left:0px;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-    }
-
-    
+    /* ------- Hidden Initial Entry Form Styles --------*/
 
     .form-container {
-        background: #fff;
-        border-radius: 10px;
-        margin: 0 auto;
-        padding: 50px 0px;
-        width: 50%;
+        width: 600px;
     }
 
-.input-holder {
-    width: 80%;
-    margin: 0 auto;
-}
+    .input-holder {
+        width: 80%;
+    }
 
-.logo {
-    font-size: 2.25em;
-    font-weight: 700;
-    color: #C72B85;
-    text-align: center; 
-}
+    /* ------- Header Styles --------*/
 
-.form-container > h1 {
-    margin-bottom: 40px;
-}
+    .header {
+        align-items: center;
+        justify-content: left;
+    }
 
-.form-container > p {
-    text-align: center;
-    margin-bottom: 60px;
-}
+    .logo-holder {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        padding-left: 60px;
+    }
 
-.add {
-    background: #C72B85;
-    width: 60%;
-    margin: 50px auto 10px;
-}
+    .header .logo {
+        text-align: left;
+    }
 
+    /* ------- Intro/About Styles --------*/
 
+    .top-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 80px auto 80px;
+    }
 
-/* ------- Header Styles --------*/
+    .about {
+        flex: 1;
+        padding: 0em 2em;
+    }
 
-.header {
-    background: #fff;
-    height: 60px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: left;
-    padding-left: 60px;
-   
+    .about > p {
+        text-align: left;
+    }
 
-    -webkit-box-shadow: 0px 9px 9px -8px rgba(0,0,0,0.21);
-    -moz-box-shadow: 0px 9px 9px -8px rgba(0,0,0,0.21);
-    box-shadow: 0px 9px 9px -8px rgba(0,0,0,0.21);
-}
+    .optional {
+        display: block;
+        padding: 30px 0px;
+    }
 
-/* ------- Intro/About Styles --------*/
+    /* ------- Summary Styles --------*/
 
-.top-container {
-    display: flex;
-    margin: 50px 0px;
-}
+    .summary {
+        flex: 1;
+        padding: 0em 2em;
+    }
 
+    .totalBudget-styles {
+        text-align: left;
+    }
 
-.about {
-    margin-bottom: 30px;
-}
+    /* ------- Category Styles --------*/
 
-.about > p > .optional  {
-    text-align: start;
-    padding: 60px;
-}
+    .categories {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
 
-.optional {
-    text-align: start;
-    padding: 60px;
-}
-.username-display {
-    color: #C72B85;
-    font-weight: 700;
-}
-
-
-/* ------- Summary Styles --------*/
-
-.summary {
-    width: 85%;
-    margin: 0 auto;
-}
-
-.summary > p {
-    margin-bottom: 20px;
-    color: #ADADAD;
-}
-
-.totalBudget-styles {
-    color: #054662;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.expenditures {
-    text-decoration: underline;
-    margin-bottom: 20px;
-    
-}
-
-.clothing-color {
-    color: #C72B85;
-    font-weight: 700;
-}
-
-.food-color {
-    color: #53D6F5;
-    font-weight: 700;
-}
-
-.entertainment-color {
-    color: #FA5FE2;
-    font-weight: 700;
-}
-
-.bills-color {
-    color: #054662;
-    font-weight: 700;
-}
-
-
-/* ------- Category Styles --------*/
-
-.categories {
-    border-top: 1px solid #ADADAD;
-    padding: 30px 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-}
-
-.container {
-    background: #fff;
-    width: 23%;
-     margin: 30px auto; 
-    border-radius: 10px;
-    padding: 20px 0px 40px;
-    position: relative;
-}
-
-.container > h2 {
-    text-align: center;
-    color: #fff;
-}
-
-.clothing-bg-color {
-    background: #C72B85;
-    display: block;
-    height: 50px;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    border-radius: 10px 10px 0px 0px;
-    padding-top: 10px;
-}
-
-.food-bg-color {
-    background: #53D6F5;
-    display: block;
-    height: 50px;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    border-radius: 10px 10px 0px 0px;
-    padding-top: 10px;
-}
-
-.entertainment-bg-color {
-    background: #FA5FE2;
-    display: block;
-    height: 50px;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    border-radius: 10px 10px 0px 0px;
-    padding-top: 10px;
-}
-
-.bills-bg-color {
-    background: #054662;
-    display: block;
-    height: 50px;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    border-radius: 10px 10px 0px 0px;
-    padding-top: 10px;
-}
+    .container {
+        min-width: 300px;
+        max-width: 375px;
+        flex: 1;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 
 .category-input-holder {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -655,12 +521,6 @@ footer p {
     margin-bottom: 20px;
     color: #ADADAD;
     
-}
-
-.totalBudget-styles {
-    color: #054662;
-    margin-bottom: 30px;
-    text-align: center;
 }
 
 

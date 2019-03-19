@@ -38,103 +38,105 @@
         </section>
       </section>
 
-      <!--Header-->
-      <header class="header">
-        <div class="logo-holder">
-          <h1 class ="logo">BudgetBuddy</h1>
-        </div>
-      </header>
-      
-      <section class="top-container">
-        <!--Intro/About Section-->
-        <section class="about">
-          <p>Welcome to BudgetBuddy, <span class="username-display">Username</span>!</p>
-          <p class="optional">Using BudgetBuddy you can manage your weekly spending like a pro! Simply enter your purchases in the categories below and watch as your budget is updated for you automatically!</p>
-        </section>
+          <!--Header-->
+          <header class="header">
+              <div class="logo-holder">
+                <h1 class ="logo">BudgetBuddy</h1>
+              </div>
+          </header>
+          <section class="top-container">
+            <!--Intro/About Section-->
+            <section class="about">
+              <p>Welcome to BudgetBuddy, <span class="username-display">Username</span>!</p>
+              <p class="optional">Using BudgetBuddy you can manage your weekly spending like a pro! Simply enter your purchases in the categories below and watch as your budget is updated for you automatically!</p>
+            </section>
+    
+            <!--Summary Section-->
+            <section class="summary">
+              <h1 class="totalBudget-styles"><span>Budget: </span><span class="totalBudget"></span></h1>
+              <h3 class="expenditures">Expenditures</h3>
+              <div class="graph"></div>
+              <p class="clothing-money">Clothing: <span class="clothing-color">$0</span></p>
+              <p class="food-money">Food: <span class="food-color">$0</span></p>
+              <p class="entertainment-money">Entertainment: <span class="entertainment-color">$0</span></p>
+              <p class="bills-money">Bills: <span class="bills-color">$0</span></p>
+            </section>
+          </section>
+    
+          <!--Category Entry Section-->
+          <section class = "categories">
+            
+            <div class="container clothing-container">
+              <h2 class="clothing-bg-color">Clothing</h2>
+              <form class= "category-form">
+                <div class="category-input-holder">
+                  <label>Item:</label>
+                  <input class= "item item-clothing" type= "text">
+                </div>
+                <div class="category-input-holder">
+                  <label>Spent:</label>
+                  <input class= "cost cost-clothing" type= "text">
+                </div>
+                <button class="enter enter-clothing" type="button">Enter</button>
+              </form>
+              <p class ="total-marker">Total Spent:</p>
+              <h2 class="clothing-spend">$0</h2>
+            </div>
+    
+            <div class="container food-container">
+              <h2 class="food-bg-color">Food</h2>
+              <form class= "category-form">
+                <div class="category-input-holder">
+                  <label>Item:</label>
+                  <input class= "item item-food" type= "text">
+                </div>
+                <div class="category-input-holder">
+                  <label>Spent:</label>
+                  <input class= "cost cost-food" type= "text">
+                </div>
+                <button class="enter enter-food" type="button">Enter</button>
+              </form>
+              <p class ="total-marker">Total Spent:</p>
+              <h2 class="food-spend">$0</h2>
+            </div>
+    
+            <div class="container entertainment-container">
+              <h2 class="entertainment-bg-color">Entertainment</h2>
+              <form class= "category-form">
+                <div class="category-input-holder">
+                  <label>Item:</label>
+                  <input class= "item item-entertainment" type= "text">
+                </div>
+                <div class="category-input-holder">
+                  <label>Spent:</label>
+                  <input class= "cost cost-entertainment" type= "text">
+                </div>
+                <button class="enter enter-entertainment" type="button">Enter</button>
+              </form>
+              <p class ="total-marker">Total Spent:</p>
+              <h2 class="entertainment-spend">$0</h2>
+            </div>
+    
+            <div class="container bills-container">
+              <h2 class="bills-bg-color">Bills</h2>
+              <form class= "category-form">
+                <div class="category-input-holder">
+                  <label>Item:</label>
+                  <input class= "item item-bills" type= "text">
+                </div>
+                <div class="category-input-holder">
+                  <label>Spent:</label>
+                  <input class= "cost cost-bills" type= "text">
+                </div>
+                <button class="enter enter-bills" type="button">Enter</button>
+              </form>
+              <p class ="total-marker">Total Spent:</p>
+              <h2 class="bills-spend">$0</h2>
+            </div>
 
-        <!--Summary Section-->
-        <section class="summary">
-          <h1 class="totalBudget-styles"><span>Budget: </span><span class="totalBudget"></span></h1>
-          <h3 class="expenditures">Expenditures</h3>
-          <div class="graph"></div>
-          <p class="clothing-money">Clothing: <span class="clothing-color">$0</span></p>
-          <p class="food-money">Food: <span class="food-color">$0</span></p>
-          <p class="entertainment-money">Entertainment: <span class="entertainment-color">$0</span></p>
-          <p class="bills-money">Bills: <span class="bills-color">$0</span></p>
-        </section>
-      </section>
-
-      <!--Category Entry Section-->
-      <section class = "categories">
-        
-        <div class="container clothing-container">
-          <h2 class="clothing-bg-color">Clothing</h2>
-          <form class= "category-form">
-            <div class="category-input-holder">
-              <label>Item:</label>
-              <input class= "item item-clothing" type= "text">
-            </div>
-            <div class="category-input-holder">
-              <label>Spent:</label>
-              <input class= "cost cost-clothing" type= "text">
-            </div>
-            <button class="enter enter-clothing" type="button">Enter</button>
-          </form>
-          <p class ="total-marker">Total Spent:</p>
-          <h2 class="clothing-spend">$0</h2>
-        </div>
-
-        <div class="container food-container">
-          <h2 class="food-bg-color">Food</h2>
-          <form class= "category-form">
-            <div class="category-input-holder">
-              <label>Item:</label>
-              <input class= "item item-food" type= "text">
-            </div>
-            <div class="category-input-holder">
-              <label>Spent:</label>
-              <input class= "cost cost-food" type= "text">
-            </div>
-            <button class="enter enter-food" type="button">Enter</button>
-          </form>
-          <p class ="total-marker">Total Spent:</p>
-          <h2 class="food-spend">$0</h2>
-        </div>
-
-        <div class="container entertainment-container">
-          <h2 class="entertainment-bg-color">Entertainment</h2>
-          <form class= "category-form">
-            <div class="category-input-holder">
-              <label>Item:</label>
-              <input class= "item item-entertainment" type= "text">
-            </div>
-            <div class="category-input-holder">
-              <label>Spent:</label>
-              <input class= "cost cost-entertainment" type= "text">
-            </div>
-            <button class="enter enter-entertainment" type="button">Enter</button>
-          </form>
-          <p class ="total-marker">Total Spent:</p>
-          <h2 class="entertainment-spend">$0</h2>
-        </div>
-
-        <div class="container bills-container">
-          <h2 class="bills-bg-color">Bills</h2>
-          <form class= "category-form">
-            <div class="category-input-holder">
-              <label>Item:</label>
-              <input class= "item item-bills" type= "text">
-            </div>
-            <div class="category-input-holder">
-              <label>Spent:</label>
-              <input class= "cost cost-bills" type= "text">
-            </div>
-            <button class="enter enter-bills" type="button">Enter</button>
-          </form>
-          <p class ="total-marker">Total Spent:</p>
-          <h2 class="bills-spend">$0</h2>
-        </div>
-      </section>
+          </section>
+    
+         
 
       
 
@@ -145,12 +147,13 @@
         <p class="transactions-hide">You have no saved transactions yet</p>
       </section>
 
+
       <!--Footer-->
       <footer>
         <p>Copyright &copy; BudgetBuddy 2019</p>
       </footer>
 
-    <script src="js/script.js"></script>
+      <script src="js/script.js"></script>
 </body>
 
 </html>
