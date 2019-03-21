@@ -135,24 +135,68 @@ button:focus {
   display: none;
 }
 
+/* ------- Hidden Alert Styles --------*/
+
+.noMoney-form {
+    background: rgba(5, 70, 98, 0.75);
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index: 950;
+    display: flex;
+    align-items: center;
+}
+
+.go-back {
+    background: #C72B85;
+    width: 80%;
+    margin: 50px auto 10px;
+    max-width: 360px;
+}
+
+.go-back2 {
+    background: #C72B85;
+    width: 80%;
+    margin: 50px auto 10px;
+    max-width: 360px;
+}
+
 /* ------- Header Styles --------*/
 
 .header {
     background: #fff;
     height: 70px;
     display: flex;
+    position: fixed;
+    top: 0;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px 0px;
+    width: 100%;
+    z-index: 900;
 
     -webkit-box-shadow: 0px 9px 9px -8px rgba(0,0,0,0.21);
     -moz-box-shadow: 0px 9px 9px -8px rgba(0,0,0,0.21);
     box-shadow: 0px 9px 9px -8px rgba(0,0,0,0.21);
 }
 
+.logo-holder {
+    margin-bottom: 15px;
+}
+
+.totalBudget-styles2 {
+    color: #054662;
+    text-align: center;
+    font-size: 1.5em;
+}
+
 /* ------- Intro/About Styles --------*/
 
 .top-container {
-    margin: 50px 0px;
+    margin: 160px 0px 60px;
 }
 
 .optional {
@@ -170,6 +214,7 @@ button:focus {
 .username-display {
     color: #C72B85;
     font-weight: 700;
+    font-size: 1.5em;
 }
 
 /* ------- Summary Styles --------*/
@@ -188,11 +233,13 @@ button:focus {
 .summary > p {
     margin-bottom: 20px;
     color: #ADADAD;
+    text-align: center;
 }
 
 .expenditures {
     text-decoration: underline;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .clothing-color {
@@ -215,12 +262,88 @@ button:focus {
     font-weight: 700;
 }
 
+/* ------- Graph Styles --------*/
+
+.graph-holder {
+    flex: 1;
+    margin-top: 50px;
+}
+
+.bar {
+    position: relative;
+    margin: 0px 20px 25px 20px;
+}
+
+.bar:before{
+    width: 100%;
+    height: 15px;
+    content: "";
+    display: block;
+    position: absolute;
+    background: #fff;
+    bottom: 0;
+    border-radius: 20px;
+}
+
+.percent {
+    width: 100%;
+    height: 15px;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+}
+
+.graph-label {
+    color: #ADADAD;
+    margin-bottom: 10px;
+}
+
+.clothesPercent {
+    color: #C72B85;
+    font-weight: 700;
+}
+
+.foodPercent {
+    color: #53D6F5;
+    font-weight: 700;
+}
+
+.entertainmentPercent {
+    color: #FA5FE2;
+    font-weight: 700;
+}
+
+.billsPercent {
+    color: #054662;
+    font-weight: 700;
+}
+
+.clothing-1 {
+    background:#C72B85;
+}
+
+.food-1 {
+    background:#53D6F5;
+}
+
+.entertainment-1 {
+    background:#FA5FE2;
+}
+
+.bills-1 {
+    background:#054662;
+}
+
+/* ------- Divider Styles --------*/
+
+.divider {
+    border-top: 1px solid #ADADAD;
+}
+
 /* ------- Category Styles --------*/
 
 .categories {
-    border-top: 1px solid #ADADAD;
     padding: 30px 0px;
-
 }
 
 .container {
@@ -343,6 +466,21 @@ button:focus {
 
 /* ------- Transaction History Styles --------*/
 
+.transactions {
+    padding: 0em 2em;
+    margin: 50px 0px;
+}
+
+.history {
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.transactions > p {
+    margin-bottom: 20px;
+    color: #ADADAD;
+}
+
 /* ------- Footer Styles --------*/
 
 footer {
@@ -382,17 +520,28 @@ footer p {
     .header {
         align-items: center;
         justify-content: left;
+        margin: 0px;
+        padding: 0px;
+        flex-direction: row;
     }
 
     .logo-holder {
-        max-width: 1200px;
         margin: 0 auto;
-        width: 100%;
         padding-left: 60px;
+        flex: 1;
+    }
+
+    .running-budget {
+        flex: 1;
     }
 
     .header .logo {
         text-align: left;
+    }
+    
+    .totalBudget-styles2 {
+        text-align: right;
+        padding-right: 60px;
     }
 
     /* ------- Intro/About Styles --------*/
@@ -400,7 +549,7 @@ footer p {
     .top-container {
         display: flex;
         max-width: 1200px;
-        margin: 80px auto 80px;
+        margin: 140px auto 80px;
     }
 
     .about {
@@ -421,11 +570,29 @@ footer p {
 
     .summary {
         flex: 1;
-        padding: 0em 2em;
+        padding: 0em 0em;
     }
 
     .totalBudget-styles {
         text-align: left;
+    }
+
+    .summary > p {
+        text-align: left;
+    }
+    
+    .expenditures {
+        text-align: left;
+    }
+
+    /* ------- Graph Styles --------*/
+
+    .graph-holder {
+        margin-top: 0px;
+    }
+    
+    .bar {
+        margin: 0px 20px 25px 0px;
     }
 
     /* ------- Category Styles --------*/
@@ -435,118 +602,21 @@ footer p {
         flex-wrap: wrap;
         max-width: 1400px;
         margin: 0 auto;
+        align-items: center;
+        justify-content: center;
     }
 
     .container {
-        min-width: 300px;
-        max-width: 375px;
-        flex: 1;
+        width: 310px;
+        flex: 0 auto;
         margin-left: 10px;
         margin-right: 10px;
     }
 
-.category-input-holder {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.category-form {
-    margin-top: 80px;
-}
-
-.enter {
-    margin: 0 auto;
-    width: 60%;
-}
-
-.enter-clothing {
-    background: #C72B85;
-}
-
-.enter-food {
-    background: #53D6F5;
-}
-
-.enter-entertainment {
-    background: #FA5FE2;
-}
-
-.enter-bills {
-    background: #054662;
-}
-
-.clothing-spend {
-    font-size: 3.5em;
-    color: #C72B85 !Important;
-    text-align: center;
-}
-
-.food-spend {
-    font-size: 3.5em;
-    color: #53D6F5 !Important;
-    text-align: center;
-}
-
-.entertainment-spend {
-    font-size: 3.5em;
-    color: #FA5FE2 !Important;
-    text-align: center;
-}
-
-.bills-spend {
-    font-size: 3.5em;
-    color: #054662 !Important;
-    text-align: center;
-}
-
-.total-marker {
-    text-align: center;
-    font-size: 1.5em;
-    margin-top: 30px;
-}
-
 /* ------- Transaction History Styles --------*/
 
-.transactions {
-    width: 85%;
-    margin: 0 auto;
-}
-
-.history {
-    text-decoration: underline;
-    margin-bottom: 20px;
-}
-
-.transactions > p {
-    margin-bottom: 20px;
-    color: #ADADAD;
-    
-}
-
-
-
-.clothing-color {
-    color: #C72B85;
-    font-weight: 700;
-}
-
-.clothing-money { 
-    color: #C72B85;
-}
-
-.food-color {
-    color: #53D6F5;
-    font-weight: 700;
-}
-
-.entertainment-color {
-    color: #FA5FE2;
-    font-weight: 700;
-}
-
-.bills-color {
-    color: #054662;
-    font-weight: 700;
-}
-
+    .transactions {
+        max-width: 1200px;
+        margin: 50px auto 50px;
+    }
 }
