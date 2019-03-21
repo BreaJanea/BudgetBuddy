@@ -21,29 +21,48 @@
             <form name="form1" class="mainform" type="button" onsubmit="submitBudgetForm()">
               <div class="input-holder">
                 <label>Username:</label>
-                <input class="name" type="text" />
+                <input class="name" type="text" required />
               </div>
-    
               <div class="input-holder">
                 <label>Weekly Total Budget:</label>
-                <input id="budget_input" class="budget" type="number">
+                <input id="budget_input" class="budget" type="number" required>
               </div>
               <button id="myBtn" class="add" type="button">Get Your Budget!</button>
-              
-
             </form>
-            
-       
           </div>
         </section>
       </section>
 
-          <!--Header-->
-          <header class="header">
-              <div class="logo-holder">
-                <h1 class ="logo">BudgetBuddy</h1>
-              </div>
-          </header>
+      <!--Hidden Alert $0 Form-->
+      <section class ="hide noMoney-form no-money">
+        <section class ="form-container">
+          <h1 class ="logo">BudgetBuddy</h1>
+          <p>Your have no money left in this week's budget.</p>
+          <button class="go-back" type="button">Ok</button>
+          </div>
+        </section>
+      </section>
+
+      <!--Hidden Alert Not Enough Form-->
+      <section class ="hide noMoney-form not-enough">
+        <section class ="form-container">
+          <h1 class ="logo">BudgetBuddy</h1>
+          <p>This purchase exceeds this week's budget.</p>
+          <button class="go-back2" type="button">Ok</button>
+          </div>
+        </section>
+      </section>
+
+        <!--Header-->
+        <header class="header">
+          <div class="logo-holder">
+            <h1 class ="logo">BudgetBuddy</h1>
+          </div>
+          <div class="running-budget">
+            <h1 class="totalBudget-styles2"><span>Budget: </span><span class="totalBudget2"></span></h1>
+          </div>
+        </header>
+
           <section class="top-container">
             <!--Intro/About Section-->
             <section class="about">
@@ -54,14 +73,37 @@
             <!--Summary Section-->
             <section class="summary">
               <h1 class="totalBudget-styles"><span>Budget: </span><span class="totalBudget"></span></h1>
-              <h3 class="expenditures">Expenditures</h3>
-              <div class="graph"></div>
+              <h3 class="expenditures">Category Totals:</h3>
               <p class="clothing-money">Clothing: <span class="clothing-color">$0</span></p>
               <p class="food-money">Food: <span class="food-color">$0</span></p>
               <p class="entertainment-money">Entertainment: <span class="entertainment-color">$0</span></p>
               <p class="bills-money">Bills: <span class="bills-color">$0</span></p>
             </section>
+
+            <!--Graph Section-->
+            <section class="graph-holder">
+              <div class="graph">
+                <div class="bar">
+                  <p class="graph-label">Clothing: <span class="clothesPercent"></span></p>
+                  <div class="percent clothing-1"></div>
+                </div>
+                <div class="bar">
+                  <p class="graph-label">Food: <span class="foodPercent"></span></p>
+                  <div class="percent food-1"></div>
+                </div>
+                <div class="bar">
+                  <p class="graph-label">Entertainment: <span class="entertainmentPercent"></span></p>
+                  <div class="percent entertainment-1"></div>
+                </div>
+                <div class="bar">
+                  <p class="graph-label">Bills: <span class="billsPercent"></span></p>
+                  <div class="percent bills-1"></div>
+                </div>
+              </div>
+            </section>
           </section>
+
+          <div class="divider"></div>
     
           <!--Category Entry Section-->
           <section class = "categories">
@@ -71,11 +113,11 @@
               <form class= "category-form">
                 <div class="category-input-holder">
                   <label>Item:</label>
-                  <input class= "item item-clothing" type= "text">
+                  <input class= "item item-clothing" type= "text" required>
                 </div>
                 <div class="category-input-holder">
                   <label>Spent:</label>
-                  <input class= "cost cost-clothing" type= "text">
+                  <input class= "cost cost-clothing" type= "text" required>
                 </div>
                 <button class="enter enter-clothing" type="button">Enter</button>
               </form>
@@ -88,11 +130,11 @@
               <form class= "category-form">
                 <div class="category-input-holder">
                   <label>Item:</label>
-                  <input class= "item item-food" type= "text">
+                  <input class= "item item-food" type= "text" required>
                 </div>
                 <div class="category-input-holder">
                   <label>Spent:</label>
-                  <input class= "cost cost-food" type= "text">
+                  <input class= "cost cost-food" type= "text" required>
                 </div>
                 <button class="enter enter-food" type="button">Enter</button>
               </form>
@@ -105,11 +147,11 @@
               <form class= "category-form">
                 <div class="category-input-holder">
                   <label>Item:</label>
-                  <input class= "item item-entertainment" type= "text">
+                  <input class= "item item-entertainment" type= "text" required>
                 </div>
                 <div class="category-input-holder">
                   <label>Spent:</label>
-                  <input class= "cost cost-entertainment" type= "text">
+                  <input class= "cost cost-entertainment" type= "text" required>
                 </div>
                 <button class="enter enter-entertainment" type="button">Enter</button>
               </form>
@@ -122,29 +164,25 @@
               <form class= "category-form">
                 <div class="category-input-holder">
                   <label>Item:</label>
-                  <input class= "item item-bills" type= "text">
+                  <input class= "item item-bills" type= "text" required>
                 </div>
                 <div class="category-input-holder">
                   <label>Spent:</label>
-                  <input class= "cost cost-bills" type= "text">
+                  <input class= "cost cost-bills" type= "text" required>
                 </div>
                 <button class="enter enter-bills" type="button">Enter</button>
               </form>
               <p class ="total-marker">Total Spent:</p>
               <h2 class="bills-spend">$0</h2>
             </div>
-
           </section>
-    
-         
 
-      
+          <div class="divider"></div>
 
       <!--Transaction History Section-->
       <section class="transactions">
         <h3 class="history">Transaction History</h3>
-        <div class="graph"></div>
-        <p class="transactions-hide">You have no saved transactions yet</p>
+        <p class="transactions-hide">You have no saved transactions yet.</p>
       </section>
 
 

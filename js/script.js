@@ -3,8 +3,8 @@
   //querySelectors below
   const name = document.querySelector('.name');
   let budget = document.querySelector('.budget');
-  const addButton = document.querySelector('.add');
   let showBudgetTotal = document.querySelector('.totalBudget');
+  let showBudgetTotal2 = document.querySelector('.totalBudget2');
 
   let itemClothing = document.querySelector('.item-clothing');
   let itemFood = document.querySelector('.item-food');
@@ -36,15 +36,30 @@
 
   let enterButtons = document.querySelector('.enter');
 
-  // Selects hidden form
-  let hiddenForm = document.querySelector('.entry-form');
+  // Selects hidden forms
+  const hiddenForm = document.querySelector('.entry-form');
+  const noMoney = document.querySelector('.no-money');
+  const notEnough = document.querySelector('.not-enough');
+  const addButton = document.querySelector('.add');
+  const okay1 = document.querySelector('.go-back');
+  const okay2 = document.querySelector('.go-back2');
 
   // Selects username input and display span
   const userName = document.querySelector('.name');
   const userNameDisplay = document.querySelector('.username-display');
 
-  
-const budgetInput = document.getElementById('budget_input');
+  // Selects graph elements    
+  let percentBarClothes = document.querySelector('.clothing-1');
+  let percentBarFood = document.querySelector('.food-1');
+  let percentBarEntertainment = document.querySelector('.entertainment-1');
+  let percentBarBills = document.querySelector('.bills-1');
+
+  let percentClothes = document.querySelector('.clothesPercent');
+  let percentFood = document.querySelector('.foodPercent');
+  let percentEntertainment = document.querySelector('.entertainmentPercent');
+  let percentBills = document.querySelector('.billsPercent');
+
+  const budgetInput = document.getElementById('budget_input');
 
 
   //BUDGETS 
@@ -57,45 +72,16 @@ const budgetInput = document.getElementById('budget_input');
   let billsBudget = 0;
 
 
-
-
-
-  //FUNCTIONS - each individual budget is calculated separately below
-
   // Converts user input for total budget from string to number
   let getBudgetNumber = () => {
       runningBudget = parseInt(budget.value, 10);
   };
 
   
-
-  // Updates total budget output each time it's called. Removes event listeners in case the budget reaches 0.
+  // Updates total budget output each time it's called. 
   let updateBudget = () => {
-    if (runningBudget > 0) {
-      showBudgetTotal.innerText = `$${runningBudget}`;     
-    }
-    else if (runningBudget < 0) {
-      canvas.removeEventListener('click', enterClothing);
-      canvas.removeEventListener('click', enterFood);
-      canvas.removeEventListener('click', enterEntertainment);
-      canvas.removeEventListener('click', enterBills);   
-    }
-
-    else {
-      alert('You already spent all your money');
-      itemClothing.value = '';
-      costClothing.value = '';
-
-      enterButtons.classList.add("gray");
-      canvas.removeEventListener('click', enterClothing);
-      canvas.removeEventListener('click', enterFood);
-      canvas.removeEventListener('click', enterEntertainment);
-      canvas.removeEventListener('click', enterBills);
-
-      
-      //I couldn't figure out how to make the value go back to nothing here
-      
-    }
+      showBudgetTotal.innerText = `$${runningBudget}`;
+      showBudgetTotal2.innerText = `$${runningBudget}`;      
   };
 
   
@@ -257,58 +243,180 @@ const budgetInput = document.getElementById('budget_input');
   // Takes user input and displays value for budget and username, hides initial form, and scrolls to top of page
   addButton.addEventListener('click', () => {
     const empt = document.form1;
-
     if(empt.querySelector('.name').value === "" || budgetInput.value < 1){
       alert("Value cannot be empty or negative!");
     } else {
      
       getBudgetNumber();
       showBudgetTotal.innerText = `$${runningBudget}`;
+      showBudgetTotal2.innerText = `$${runningBudget}`;
       userNameDisplay.innerText = `${userName.value}`;
       hiddenForm.classList.add("hide");
       window.scrollTo(0, 0);
+
+      updateClothesGraph();
+      updateFoodGraph();
+      updateEntertainmentGraph();
+      updateBillsGraph();
     }
   });
 
-  // Adds new purchases when user hitting enter, deducts price from budget total, clears fields
+  
+  // Adds new purchases when user hits enter, deducts price from budget total, and clears fields.
+  
+    enterClothing.addEventListener('click', () => {
+      // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
+      if (costClothing.value > runningBudget) {
+        notEnough.classList.remove("hide");
+        itemClothing.value = '';
+        costClothing.value = '';
+      }
+      /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
+      deduct from budget, and updates running category budget and graph. */
+      else if (runningBudget >= 0) {
+        newClothesBudget.addClothingItem();
+        newClothesBudget.deductBudgetClothing();
+        newClothesBudget.runningClothingExpenses();
+        updateClothesGraph();
+    
+        itemClothing.value = '';
+        costClothing.value = '';
+      }
+      // If running budget reaches zero, pop-up is initiated to inform user.
+      if (runningBudget === 0) {
+        noMoney.classList.remove("hide");
+      }
+    });
 
-  
-  enterClothing.addEventListener('click', () => {
-      newClothesBudget.addClothingItem();
-      newClothesBudget.deductBudgetClothing();
-      newClothesBudget.runningClothingExpenses();
-  
-      itemClothing.value = '';
-      costClothing.value = '';
+  // Hides pop-up when user clicks "ok", disables enter buttons in case the budget reaches.
+    okay1.addEventListener('click', () => {
+      // Hides pop-up again and scrolls page to top.
+      noMoney.classList.add("hide");
+      window.scrollTo(0, 0);
+      // Disables buttons.
+      enterClothing.disabled = true;
+      enterFood.disabled = true;
+      enterEntertainment.disabled = true;
+      enterBills.disabled = true;
+      // Makes buttons grayed out.
+      enterClothing.classList.add("gray");
+      enterFood.classList.add("gray");
+      enterEntertainment.classList.add("gray");
+      enterBills.classList.add("gray");
+    });
+
+  // Hides pop-up when user clicks "ok".
+    okay2.addEventListener('click', () => {
+      notEnough.classList.add("hide");
+      window.scrollTo(0, 0);
     });
 
     enterFood.addEventListener('click', () => {
-      newFoodBudget.addFoodItem();
-      newFoodBudget.deductBudgetFood();
-      newFoodBudget.runningFoodExpenses();
-  
-      itemFood.value = '';
-      costFood.value = '';
+      // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
+      if (costFood.value > runningBudget) {
+        notEnough.classList.remove("hide");
+        itemFood.value = '';
+        costFood.value = '';
+      }
+      /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
+      deduct from budget, and updates running category budget and graph. */
+      else if (runningBudget >= 0) {
+        newFoodBudget.addFoodItem();
+        newFoodBudget.deductBudgetFood();
+        newFoodBudget.runningFoodExpenses();
+        updateFoodGraph();
+    
+        itemFood.value = '';
+        costFood.value = '';
+      }
+      // If running budget reaches zero, pop-up is initiated to inform user.
+      if (runningBudget === 0) {
+        noMoney.classList.remove("hide");
+      }
     });
 
     enterEntertainment.addEventListener('click', () => {
-      newEntertainmentBudget.addEntertainmentItem();
-      newEntertainmentBudget.deductBudgetEntertainment();
-      newEntertainmentBudget.runningEntertainmentExpenses();
-  
-      itemEntertainment.value = '';
-      costEntertainment.value = '';
+      // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
+      if (costEntertainment.value > runningBudget) {
+        notEnough.classList.remove("hide");
+        itemEntertainment.value = '';
+        costEntertainment.value = '';
+      }
+      /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
+      deduct from budget, and updates running category budget and graph. */
+      else if (runningBudget >= 0) {
+        newEntertainmentBudget.addEntertainmentItem();
+        newEntertainmentBudget.deductBudgetEntertainment();
+        newEntertainmentBudget.runningEntertainmentExpenses();
+        updateEntertainmentGraph();
+    
+        itemEntertainment.value = '';
+        costEntertainment.value = '';
+      }
+      // If running budget reaches zero, pop-up is initiated to inform user.
+      if (runningBudget === 0) {
+        noMoney.classList.remove("hide");
+      }
     });
 
     enterBills.addEventListener('click', () => {
-      newBillsBudget.addBillsItem();
-      newBillsBudget.deductBudgetBills();
-      newBillsBudget.runningBillsExpenses();
-  
-      itemBills.value = '';
-      costBills.value = '';
+      // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
+      if (costBills.value > runningBudget) {
+        notEnough.classList.remove("hide");
+        itemBills.value = '';
+        costBills.value = '';
+      }
+      /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
+      deduct from budget, and updates running category budget and graph. */
+      else if (runningBudget >= 0) {
+        newBillsBudget.addBillsItem();
+        newBillsBudget.deductBudgetBills();
+        newBillsBudget.runningBillsExpenses();
+        updateBillsGraph();
+    
+        itemBills.value = '';
+        costBills.value = '';
+      }
+      // If running budget reaches zero, pop-up is initiated to inform user.
+      if (runningBudget === 0) {
+        noMoney.classList.remove("hide");
+      }
     });
-  
+
+
+    //Graph functions!
+
+    function updateClothesGraph () {
+      let wholeBudget = runningBudget + clothingBudget;
+      let divide = clothingBudget / wholeBudget;
+      let total = divide * 100;
+      percentBarClothes.style.width = `${total}%`;
+      percentClothes.innerText = `${Math.trunc(total)}%`;
+    };
+
+    function updateFoodGraph () {
+      let wholeBudget = runningBudget + foodBudget;
+      let divide = foodBudget / wholeBudget;
+      let total = divide * 100;
+      percentBarFood.style.width = `${total}%`;
+      percentFood.innerText = `${Math.trunc(total)}%`;
+    };
+
+    function updateEntertainmentGraph () {
+      let wholeBudget = runningBudget + entertainmentBudget;
+      let divide = entertainmentBudget / wholeBudget;
+      let total = divide * 100;
+      percentBarEntertainment.style.width = `${total}%`;
+      percentEntertainment.innerText = `${Math.trunc(total)}%`;
+    };
+    
+    function updateBillsGraph () {
+      let wholeBudget = runningBudget + billsBudget;
+      let divide = billsBudget / wholeBudget;
+      let total = divide * 100;
+      percentBarBills.style.width = `${total}%`;
+      percentBills.innerText = `${Math.trunc(total)}%`;
+    };
 }
 
 
