@@ -95,6 +95,7 @@
     transactionsHide.classList.add("hide");
   }
 
+
   let updateFoodExpenses = () => {
     foodSpend.innerText = `$${foodBudget}`;
     foodColor.innerText = `$${foodBudget}`;
