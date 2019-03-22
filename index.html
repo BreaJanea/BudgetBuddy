@@ -18,7 +18,7 @@
           <h1 class ="logo">BudgetBuddy</h1>
           <p>Your weekly budget made simple!</p>
           <div id="initialform" class="initialform">
-            <form name="form1" class="mainform" type="button" onsubmit="submitBudgetForm()">
+            <form name="form1" class="mainform" type="button">
               <div class="input-holder">
                 <label>Username:</label>
                 <input class="name" type="text" required />
@@ -59,7 +59,7 @@
             <h1 class ="logo">BudgetBuddy</h1>
           </div>
           <div class="running-budget">
-            <h1 class="totalBudget-styles2"><span>Budget: </span><span class="totalBudget2"></span></h1>
+            <h1 class="totalBudget-styles2"><span>Remaining: </span><span class="totalBudget2"></span></h1>
           </div>
         </header>
 
@@ -72,31 +72,28 @@
     
             <!--Summary Section-->
             <section class="summary">
-              <h1 class="totalBudget-styles"><span>Budget: </span><span class="totalBudget"></span></h1>
-              <h3 class="expenditures">Category Totals:</h3>
-              <p class="clothing-money">Clothing: <span class="clothing-color">$0</span></p>
-              <p class="food-money">Food: <span class="food-color">$0</span></p>
-              <p class="entertainment-money">Entertainment: <span class="entertainment-color">$0</span></p>
-              <p class="bills-money">Bills: <span class="bills-color">$0</span></p>
+              <h1 class="totalBudget-styles"><span>Budget: </span><span class="entireBudget"></span></h1>
+              <h3 class="runningBud">Remaining: <span class="totalBudget"></span></h3>
+              <h3 class="runningBud">Spent: <span class="totalSpend"></span></h3>
             </section>
 
             <!--Graph Section-->
             <section class="graph-holder">
               <div class="graph">
                 <div class="bar">
-                  <p class="graph-label">Clothing: <span class="clothesPercent"></span></p>
+                  <p class="graph-label">Clothing: <span class="clothing-color">$0.00</span> <span class="clothesPercent"></span></p>
                   <div class="percent clothing-1"></div>
                 </div>
                 <div class="bar">
-                  <p class="graph-label">Food: <span class="foodPercent"></span></p>
+                  <p class="graph-label">Food: <span class="food-color">$0.00</span> <span class="foodPercent"></span></p>
                   <div class="percent food-1"></div>
                 </div>
                 <div class="bar">
-                  <p class="graph-label">Entertainment: <span class="entertainmentPercent"></span></p>
+                  <p class="graph-label">Entertainment: <span class="entertainment-color">$0.00</span> <span class="entertainmentPercent"></span></p>
                   <div class="percent entertainment-1"></div>
                 </div>
                 <div class="bar">
-                  <p class="graph-label">Bills: <span class="billsPercent"></span></p>
+                  <p class="graph-label">Bills: <span class="bills-color">$0.00</span> <span class="billsPercent"></span></p>
                   <div class="percent bills-1"></div>
                 </div>
               </div>
@@ -110,7 +107,7 @@
             
             <div class="container clothing-container">
               <h2 class="clothing-bg-color">Clothing</h2>
-              <form class= "category-form">
+              <form name ="form2" class= " mainform category-form">
                 <div class="category-input-holder">
                   <label>Item:</label>
                   <input class= "item item-clothing" type= "text" required>
@@ -122,7 +119,7 @@
                 <button class="enter enter-clothing" type="button">Enter</button>
               </form>
               <p class ="total-marker">Total Spent:</p>
-              <h2 class="clothing-spend">$0</h2>
+              <h2 class="clothing-spend">$0.00</h2>
             </div>
     
             <div class="container food-container">
@@ -139,7 +136,7 @@
                 <button class="enter enter-food" type="button">Enter</button>
               </form>
               <p class ="total-marker">Total Spent:</p>
-              <h2 class="food-spend">$0</h2>
+              <h2 class="food-spend">$0.00</h2>
             </div>
     
             <div class="container entertainment-container">
@@ -156,7 +153,7 @@
                 <button class="enter enter-entertainment" type="button">Enter</button>
               </form>
               <p class ="total-marker">Total Spent:</p>
-              <h2 class="entertainment-spend">$0</h2>
+              <h2 class="entertainment-spend">$0.00</h2>
             </div>
     
             <div class="container bills-container">
@@ -173,7 +170,7 @@
                 <button class="enter enter-bills" type="button">Enter</button>
               </form>
               <p class ="total-marker">Total Spent:</p>
-              <h2 class="bills-spend">$0</h2>
+              <h2 class="bills-spend">$0.00</h2>
             </div>
           </section>
 
