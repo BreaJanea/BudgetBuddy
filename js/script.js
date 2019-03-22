@@ -265,28 +265,36 @@
   // Adds new purchases when user hits enter, deducts price from budget total, and clears fields.
   
     enterClothing.addEventListener('click', () => {
-      // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
-      if (costClothing.value > runningBudget) {
-        notEnough.classList.remove("hide");
-        itemClothing.value = '';
-        costClothing.value = '';
-      }
-      /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
-      deduct from budget, and updates running category budget and graph. */
-      else if (runningBudget >= 0) {
-        newClothesBudget.addClothingItem();
-        newClothesBudget.deductBudgetClothing();
-        newClothesBudget.runningClothingExpenses();
-        updateClothesGraph();
-    
-        itemClothing.value = '';
-        costClothing.value = '';
-      }
-      // If running budget reaches zero, pop-up is initiated to inform user.
-      if (runningBudget === 0) {
-        noMoney.classList.remove("hide");
-      }
-    });
+      const empt = document.form2;
+      if (empt.querySelector('.item-clothing').value === " " || costClothing.value < 1){
+        alert ("Value cannot be empty or negative!");
+      } else {
+        // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
+        if (costClothing.value > runningBudget) {
+       
+
+          notEnough.classList.remove("hide");
+          itemClothing.value = '';
+          costClothing.value = '';
+           
+        }
+        /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
+        deduct from budget, and updates running category budget and graph. */
+        else if (runningBudget >= 0) {
+          newClothesBudget.addClothingItem();
+          newClothesBudget.deductBudgetClothing();
+          newClothesBudget.runningClothingExpenses();
+          updateClothesGraph();
+      
+          itemClothing.value = '';
+          costClothing.value = '';
+        }
+        // If running budget reaches zero, pop-up is initiated to inform user.
+        if (runningBudget === 0) {
+          noMoney.classList.remove("hide");
+        }
+      
+    }});
 
   // Hides pop-up when user clicks "ok", disables enter buttons in case the budget reaches.
     okay1.addEventListener('click', () => {
@@ -312,6 +320,10 @@
     });
 
     enterFood.addEventListener('click', () => {
+      const empt = document.form3;
+      if (empt.querySelector('.item-food').value === " " || costFood.value < 1){
+        alert ("Value cannot be empty or negative!");
+      } else {
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
       if (costFood.value > runningBudget) {
         notEnough.classList.remove("hide");
@@ -333,9 +345,13 @@
       if (runningBudget === 0) {
         noMoney.classList.remove("hide");
       }
-    });
+    }});
 
     enterEntertainment.addEventListener('click', () => {
+      const empt = document.form4;
+      if (empt.querySelector('.item-entertainment').value === " " || costEntertainment.value < 1){
+        alert ("Value cannot be empty or negative!");
+      } else {
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
       if (costEntertainment.value > runningBudget) {
         notEnough.classList.remove("hide");
@@ -357,9 +373,13 @@
       if (runningBudget === 0) {
         noMoney.classList.remove("hide");
       }
-    });
+    }});
 
     enterBills.addEventListener('click', () => {
+      const empt = document.form5;
+      if (empt.querySelector('.item-bills').value === " " || costBills.value < 1){
+        alert ("Value cannot be empty or negative!");
+      } else {
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
       if (costBills.value > runningBudget) {
         notEnough.classList.remove("hide");
@@ -381,7 +401,7 @@
       if (runningBudget === 0) {
         noMoney.classList.remove("hide");
       }
-    });
+    }});
 
 
     //Graph functions!
