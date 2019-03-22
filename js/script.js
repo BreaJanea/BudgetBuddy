@@ -34,8 +34,6 @@
   let transactions = document.querySelector('.transactions');
   let transactionsHide = document.querySelector('.transactions-hide');
 
-  let enterButtons = document.querySelector('.enter');
-
   // Selects hidden forms
   const hiddenForm = document.querySelector('.entry-form');
   const noMoney = document.querySelector('.no-money');
@@ -60,6 +58,8 @@
   let percentBills = document.querySelector('.billsPercent');
 
   const budgetInput = document.getElementById('budget_input');
+  let showEntireBudget = document.querySelector('.entireBudget');
+  let showEntireSpend = document.querySelector('.totalSpend')
 
 
   //BUDGETS 
@@ -70,57 +70,83 @@
   let foodBudget = 0;
   let entertainmentBudget = 0;
   let billsBudget = 0;
-
+  let wholeBudget = 0;
+  
+  // Stores total budget with no changes/static
+  let overallBudget = () => {
+    wholeBudget = parseFloat(budget.value);
+    let formatWhole = wholeBudget.toFixed(2);
+    showEntireBudget.innerText = `$${formatWhole}`;
+  };
 
   // Converts user input for total budget from string to number
   let getBudgetNumber = () => {
-      runningBudget = parseInt(budget.value, 10);
+      runningBudget = parseFloat(budget.value);
   };
 
   
   // Updates total budget output each time it's called. 
   let updateBudget = () => {
-      showBudgetTotal.innerText = `$${runningBudget}`;
-      showBudgetTotal2.innerText = `$${runningBudget}`;      
+      let formatRunning = runningBudget.toFixed(2);
+      showBudgetTotal.innerText = `$${formatRunning}`;
+      showBudgetTotal2.innerText = `$${formatRunning}`;      
   };
 
   
   //updates expenses
   let updateClothingExpenses = () => {
-    clothingSpend.innerText = `$${clothingBudget}`;
-    clothingColor.innerText = `$${clothingBudget}`;
+    let formatClothing = clothingBudget.toFixed(2);
+    clothingSpend.innerText = `$${formatClothing}`;
+    clothingColor.innerText = `$${formatClothing}`;
     let clothingTransaction = document.createElement('p');
-    clothingTransaction.innerHTML = `${itemClothing.value}: <span class= "clothing-color">$${costClothing.value}</span>`;
+
+    let costFormat = parseFloat(costClothing.value).toFixed(2);
+    clothingTransaction.innerHTML = `${itemClothing.value}: <span class= "clothing-color">$${costFormat}</span>`;
     transactions.appendChild(clothingTransaction);
     transactionsHide.classList.add("hide");
   }
 
 
   let updateFoodExpenses = () => {
-    foodSpend.innerText = `$${foodBudget}`;
-    foodColor.innerText = `$${foodBudget}`;
+    let formatFood = foodBudget.toFixed(2);
+    foodSpend.innerText = `$${formatFood}`;
+    foodColor.innerText = `$${formatFood}`;
     let foodTransaction = document.createElement('p');
-    foodTransaction.innerHTML = `${itemFood.value}: <span class= "food-color">$${costFood.value}</span>`;
+
+    let costFormat = parseFloat(costFood.value).toFixed(2);
+    foodTransaction.innerHTML = `${itemFood.value}: <span class= "food-color">$${costFormat}</span>`;
     transactions.appendChild(foodTransaction);
     transactionsHide.classList.add("hide");
   }
 
   let updateEntertainmentExpenses = () => {
-    entertainmentSpend.innerText = `$${entertainmentBudget}`;
-    entertainmentColor.innerText = `$${entertainmentBudget}`;
+    let formatEntertainment = entertainmentBudget.toFixed(2);
+    entertainmentSpend.innerText = `$${formatEntertainment}`;
+    entertainmentColor.innerText = `$${formatEntertainment}`;
     let entertainmentTransaction = document.createElement('p');
-    entertainmentTransaction.innerHTML = `${itemEntertainment.value}: <span class= "entertainment-color">$${costEntertainment.value}</span>`;
+
+    let costFormat = parseFloat(costEntertainment.value).toFixed(2);
+    entertainmentTransaction.innerHTML = `${itemEntertainment.value}: <span class= "entertainment-color">$${costFormat}</span>`;
     transactions.appendChild(entertainmentTransaction);
     transactionsHide.classList.add("hide");
   }
 
   let updateBillsExpenses = () => {
-    billsSpend.innerText = `$${billsBudget}`;
-    billsColor.innerText = `$${billsBudget}`;
+    let formatBills = billsBudget.toFixed(2);
+    billsSpend.innerText = `$${formatBills}`;
+    billsColor.innerText = `$${formatBills}`;
     let billsTransaction = document.createElement('p');
-    billsTransaction.innerHTML = `${itemBills.value}: <span class= "bills-color">$${costBills.value}</span>`;
+
+    let costFormat = parseFloat(costBills.value).toFixed(2);
+    billsTransaction.innerHTML = `${itemBills.value}: <span class= "bills-color">$${costFormat}</span>`;
     transactions.appendChild(billsTransaction);
     transactionsHide.classList.add("hide");
+  }
+
+  let totalSpent = () => {
+    let total = clothingBudget + foodBudget + entertainmentBudget + billsBudget;
+    let formatTotal = total.toFixed(2);
+    showEntireSpend.innerText = `$${formatTotal}`;
   }
 
   // Class for purchases, initiates empty array
@@ -135,12 +161,12 @@
       }
       // Subtracts value of each new purchase from budget total
       deductBudgetClothing() {
-        let price = parseInt(costClothing.value, 10);
+        let price = parseFloat(costClothing.value);
         runningBudget -= price;
         updateBudget();
       }
       runningClothingExpenses() {
-        let price = parseInt(costClothing.value, 10);
+        let price = parseFloat(costClothing.value);
         clothingBudget += price;
         updateClothingExpenses();
       }
@@ -155,12 +181,12 @@
         this.food.push(newFood); 
       }
       deductBudgetFood() {
-        let price = parseInt(costFood.value, 10);
+        let price = parseFloat(costFood.value);
         runningBudget -= price;
         updateBudget();
       }
       runningFoodExpenses() {
-        let price = parseInt(costFood.value, 10);
+        let price = parseFloat(costFood.value);
         foodBudget += price;
         updateFoodExpenses();
       }
@@ -175,12 +201,12 @@
         this.entertainment.push(newEntertainment); 
       }
       deductBudgetEntertainment() {
-        let price = parseInt(costEntertainment.value, 10);
+        let price = parseFloat(costEntertainment.value);
         runningBudget -= price;
         updateBudget();
       }
       runningEntertainmentExpenses() {
-        let price = parseInt(costEntertainment.value, 10);
+        let price = parseFloat(costEntertainment.value);
         entertainmentBudget += price;
         updateEntertainmentExpenses();
       }
@@ -195,12 +221,12 @@
         this.bills.push(newBills); 
       }
       deductBudgetBills() {
-        let price = parseInt(costBills.value, 10);
+        let price = parseFloat(costBills.value);
         runningBudget -= price;
         updateBudget();
       }
       runningBillsExpenses() {
-        let price = parseInt(costBills.value, 10);
+        let price = parseFloat(costBills.value);
         billsBudget += price;
         updateBillsExpenses();
       }
@@ -249,8 +275,8 @@
     } else {
      
       getBudgetNumber();
-      showBudgetTotal.innerText = `$${runningBudget}`;
-      showBudgetTotal2.innerText = `$${runningBudget}`;
+      updateBudget();
+      
       userNameDisplay.innerText = `${userName.value}`;
       hiddenForm.classList.add("hide");
       window.scrollTo(0, 0);
@@ -259,6 +285,8 @@
       updateFoodGraph();
       updateEntertainmentGraph();
       updateBillsGraph();
+      overallBudget();
+      totalSpent();
     }
   });
 
@@ -277,7 +305,7 @@
           notEnough.classList.remove("hide");
           itemClothing.value = '';
           costClothing.value = '';
-           
+  
         }
         /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
         deduct from budget, and updates running category budget and graph. */
@@ -286,6 +314,8 @@
           newClothesBudget.deductBudgetClothing();
           newClothesBudget.runningClothingExpenses();
           updateClothesGraph();
+          totalSpent();
+
       
           itemClothing.value = '';
           costClothing.value = '';
@@ -338,6 +368,7 @@
         newFoodBudget.deductBudgetFood();
         newFoodBudget.runningFoodExpenses();
         updateFoodGraph();
+        totalSpent();
     
         itemFood.value = '';
         costFood.value = '';
@@ -366,6 +397,7 @@
         newEntertainmentBudget.deductBudgetEntertainment();
         newEntertainmentBudget.runningEntertainmentExpenses();
         updateEntertainmentGraph();
+        totalSpent();
     
         itemEntertainment.value = '';
         costEntertainment.value = '';
@@ -394,6 +426,7 @@
         newBillsBudget.deductBudgetBills();
         newBillsBudget.runningBillsExpenses();
         updateBillsGraph();
+        totalSpent();
     
         itemBills.value = '';
         costBills.value = '';
@@ -404,11 +437,10 @@
       }
     }});
 
-
     //Graph functions!
 
     function updateClothesGraph () {
-      let wholeBudget = runningBudget + clothingBudget;
+      overallBudget();
       let divide = clothingBudget / wholeBudget;
       let total = divide * 100;
       percentBarClothes.style.width = `${total}%`;
@@ -416,7 +448,7 @@
     };
 
     function updateFoodGraph () {
-      let wholeBudget = runningBudget + foodBudget;
+      overallBudget();
       let divide = foodBudget / wholeBudget;
       let total = divide * 100;
       percentBarFood.style.width = `${total}%`;
@@ -424,7 +456,7 @@
     };
 
     function updateEntertainmentGraph () {
-      let wholeBudget = runningBudget + entertainmentBudget;
+      overallBudget();
       let divide = entertainmentBudget / wholeBudget;
       let total = divide * 100;
       percentBarEntertainment.style.width = `${total}%`;
@@ -432,7 +464,7 @@
     };
     
     function updateBillsGraph () {
-      let wholeBudget = runningBudget + billsBudget;
+      overallBudget();
       let divide = billsBudget / wholeBudget;
       let total = divide * 100;
       percentBarBills.style.width = `${total}%`;

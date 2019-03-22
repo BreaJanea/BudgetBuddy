@@ -225,6 +225,13 @@ button:focus {
     text-align: center;
 }
 
+.runningBud {
+    color: #054662;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
 .summary {
     width: 85%;
     margin: 0 auto;
@@ -435,25 +442,25 @@ button:focus {
 }
 
 .clothing-spend {
-    font-size: 3.5em;
+    font-size: 2em;
     color: #C72B85 !Important;
     text-align: center;
 }
 
 .food-spend {
-    font-size: 3.5em;
+    font-size: 2em;
     color: #53D6F5 !Important;
     text-align: center;
 }
 
 .entertainment-spend {
-    font-size: 3.5em;
+    font-size: 2em;
     color: #FA5FE2 !Important;
     text-align: center;
 }
 
 .bills-spend {
-    font-size: 3.5em;
+    font-size: 2em;
     color: #054662 !Important;
     text-align: center;
 }
@@ -574,6 +581,10 @@ footer p {
     }
 
     .totalBudget-styles {
+        text-align: left;
+    }
+
+    .runningBud {
         text-align: left;
     }
 
