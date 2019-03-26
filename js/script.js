@@ -295,7 +295,7 @@
   
     enterClothing.addEventListener('click', () => {
       const empt = document.form2;
-      if (empt.querySelector('.item-clothing').value === " " || costClothing.value < 1){
+      if (empt.querySelector('.item-clothing').value === " " || costClothing.value < 0.01){
         alert ("Value cannot be empty or negative!");
       } else {
         // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
@@ -352,7 +352,7 @@
 
     enterFood.addEventListener('click', () => {
       const empt = document.form3;
-      if (empt.querySelector('.item-food').value === " " || costFood.value < 1){
+      if (empt.querySelector('.item-food').value === " " || costFood.value < 0.01){
         alert ("Value cannot be empty or negative!");
       } else {
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
@@ -369,7 +369,7 @@
         newFoodBudget.runningFoodExpenses();
         updateFoodGraph();
         totalSpent();
-    
+
         itemFood.value = '';
         costFood.value = '';
       }
@@ -381,7 +381,7 @@
 
     enterEntertainment.addEventListener('click', () => {
       const empt = document.form4;
-      if (empt.querySelector('.item-entertainment').value === " " || costEntertainment.value < 1){
+      if (empt.querySelector('.item-entertainment').value === " " || costEntertainment.value < 0.01){
         alert ("Value cannot be empty or negative!");
       } else {
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
@@ -410,7 +410,7 @@
 
     enterBills.addEventListener('click', () => {
       const empt = document.form5;
-      if (empt.querySelector('.item-bills').value === " " || costBills.value < 1){
+      if (empt.querySelector('.item-bills').value === " " || costBills.value < 0.01){
         alert ("Value cannot be empty or negative!");
       } else {
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
