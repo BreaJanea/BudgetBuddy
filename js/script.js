@@ -268,11 +268,9 @@
   //EVENTS - buttons used to change the budget totals
 
   // Takes user input and displays value for budget and username, hides initial form, and scrolls to top of page
-  addButton.addEventListener("keyup", addButtonListeners);
-  addButton.addEventListener("click", addButtonListeners);
 
-  function addButtonListeners() {
-    // if (event.keyCode == 13 || click === true) {
+  addButton.addEventListener('click', (e) => {
+    e.preventDefault();
     const empt = document.form1;
     if(empt.querySelector('.name').value === "" || budgetInput.value < 1){
       alert("Value cannot be empty or negative!");
@@ -296,10 +294,10 @@
 
   };
 
-  
   // Adds new purchases when user hits enter, deducts price from budget total, and clears fields.
   
-    enterClothing.addEventListener('click', () => {
+    enterClothing.addEventListener('click', (e) => {
+      e.preventDefault();
       const empt = document.form2;
       if (empt.querySelector('.item-clothing').value === " " || costClothing.value < 0.01){
         alert ("Value cannot be empty or negative!");
@@ -349,6 +347,7 @@
       enterEntertainment.classList.add("gray");
       enterBills.classList.add("gray");
     });
+    
 
   // Hides pop-up when user clicks "ok".
     okay2.addEventListener('click', () => {
@@ -356,7 +355,8 @@
       window.scrollTo(0, 0);
     });
 
-    enterFood.addEventListener('click', () => {
+    enterFood.addEventListener('click', (e) => {
+      e.preventDefault();
       const empt = document.form3;
       if (empt.querySelector('.item-food').value === " " || costFood.value < 0.01){
         alert ("Value cannot be empty or negative!");
@@ -385,7 +385,8 @@
       }
     }});
 
-    enterEntertainment.addEventListener('click', () => {
+    enterEntertainment.addEventListener('click', (e) => {
+      e.preventDefault();
       const empt = document.form4;
       if (empt.querySelector('.item-entertainment').value === " " || costEntertainment.value < 0.01){
         alert ("Value cannot be empty or negative!");
@@ -414,7 +415,8 @@
       }
     }});
 
-    enterBills.addEventListener('click', () => {
+    enterBills.addEventListener('click', (e) => {
+      e.preventDefault();
       const empt = document.form5;
       if (empt.querySelector('.item-bills').value === " " || costBills.value < 0.01){
         alert ("Value cannot be empty or negative!");
