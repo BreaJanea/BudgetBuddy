@@ -58,7 +58,7 @@ label {
     font-weight: 500;
 }
 
-button {
+.button {
     color: #fff;
     display: block;
     font-size: 1.25em;
@@ -67,6 +67,7 @@ button {
     border: none;
     height: 50px;
     border-radius: 10px;
+    text-indent: 0px;
 }
 
 button:focus {
@@ -577,7 +578,7 @@ footer p {
 
     .summary {
         flex: 1;
-        padding: 0em 0em;
+        padding: 0em 2em;
     }
 
     .totalBudget-styles {
