@@ -268,6 +268,7 @@
   //EVENTS - buttons used to change the budget totals
 
   // Takes user input and displays value for budget and username, hides initial form, and scrolls to top of page
+
   addButton.addEventListener('click', (e) => {
     e.preventDefault();
     const empt = document.form1;
@@ -289,7 +290,9 @@
       overallBudget();
       totalSpent();
     }
-  });
+  // }
+
+  };
 
   // Adds new purchases when user hits enter, deducts price from budget total, and clears fields.
   
