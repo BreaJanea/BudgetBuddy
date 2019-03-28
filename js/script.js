@@ -292,7 +292,7 @@
     }
   // }
 
-  };
+  });
 
   // Adds new purchases when user hits enter, deducts price from budget total, and clears fields.
   
@@ -304,11 +304,12 @@
       } else {
         // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
         if (costClothing.value > runningBudget) {
-       
-
-          notEnough.classList.remove("hide");
           itemClothing.value = '';
           costClothing.value = '';
+
+          notEnough.classList.remove("hide");
+
+          
   
         }
         /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
@@ -323,6 +324,7 @@
       
           itemClothing.value = '';
           costClothing.value = '';
+          window.scrollTo(0, 0);
         }
         // If running budget reaches zero, pop-up is initiated to inform user.
         if (runningBudget === 0) {
@@ -426,6 +428,7 @@
         notEnough.classList.remove("hide");
         itemBills.value = '';
         costBills.value = '';
+        
       }
       /* If everything is normal and there's enough in the budget for the entry, then add new purchase, 
       deduct from budget, and updates running category budget and graph. */
@@ -438,6 +441,8 @@
     
         itemBills.value = '';
         costBills.value = '';
+        itemBills.blur();
+        costBills.blur();
       }
       // If running budget reaches zero, pop-up is initiated to inform user.
       if (runningBudget === 0) {
