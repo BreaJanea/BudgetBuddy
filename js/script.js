@@ -292,7 +292,7 @@
     }
   // }
 
-  };
+  });
 
   // Adds new purchases when user hits enter, deducts price from budget total, and clears fields.
   
@@ -307,6 +307,7 @@
        
 
           notEnough.classList.remove("hide");
+          okay2.focus();
           itemClothing.value = '';
           costClothing.value = '';
   
@@ -319,6 +320,8 @@
           newClothesBudget.runningClothingExpenses();
           updateClothesGraph();
           totalSpent();
+          itemClothing.blur();
+          costClothing.blur();
 
       
           itemClothing.value = '';
@@ -327,6 +330,7 @@
         // If running budget reaches zero, pop-up is initiated to inform user.
         if (runningBudget === 0) {
           noMoney.classList.remove("hide");
+          okay1.focus();
         }
       
     }});
@@ -364,6 +368,7 @@
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
       if (costFood.value > runningBudget) {
         notEnough.classList.remove("hide");
+        okay2.focus();
         itemFood.value = '';
         costFood.value = '';
       }
@@ -375,6 +380,8 @@
         newFoodBudget.runningFoodExpenses();
         updateFoodGraph();
         totalSpent();
+        itemFood.blur();
+        costFood.blur();
 
         itemFood.value = '';
         costFood.value = '';
@@ -382,6 +389,7 @@
       // If running budget reaches zero, pop-up is initiated to inform user.
       if (runningBudget === 0) {
         noMoney.classList.remove("hide");
+        okay1.focus();
       }
     }});
 
@@ -394,6 +402,7 @@
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
       if (costEntertainment.value > runningBudget) {
         notEnough.classList.remove("hide");
+        okay2.focus();
         itemEntertainment.value = '';
         costEntertainment.value = '';
       }
@@ -405,6 +414,8 @@
         newEntertainmentBudget.runningEntertainmentExpenses();
         updateEntertainmentGraph();
         totalSpent();
+        itemEntertainment.blur();
+        costEntertainment.blur();
     
         itemEntertainment.value = '';
         costEntertainment.value = '';
@@ -412,6 +423,7 @@
       // If running budget reaches zero, pop-up is initiated to inform user.
       if (runningBudget === 0) {
         noMoney.classList.remove("hide");
+        okay1.focus();
       }
     }});
 
@@ -424,6 +436,7 @@
       // If cost of entry being entered exceeds running budget, then pop-up initiated and fields cleared.
       if (costBills.value > runningBudget) {
         notEnough.classList.remove("hide");
+        okay2.focus();
         itemBills.value = '';
         costBills.value = '';
       }
@@ -435,6 +448,8 @@
         newBillsBudget.runningBillsExpenses();
         updateBillsGraph();
         totalSpent();
+        itemBills.blur();
+        costBills.blur();
     
         itemBills.value = '';
         costBills.value = '';
@@ -442,6 +457,7 @@
       // If running budget reaches zero, pop-up is initiated to inform user.
       if (runningBudget === 0) {
         noMoney.classList.remove("hide");
+        okay1.focus();
       }
     }});
 
